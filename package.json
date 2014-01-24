@@ -2,6 +2,7 @@
   "name": "quick_template",
   "version": "0.0.1",
   "description": "A quick template for ideas",
+  "repository": "git@github.com:theverything/quick_template.git",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
