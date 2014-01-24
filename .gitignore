@@ -16,3 +16,6 @@ build
 .grunt
 
 node_modules
+bower_components/html5-boilerplate/css
+bower_components/html5-boilerplate/js
+bower_components/html5-boilerplate/img
