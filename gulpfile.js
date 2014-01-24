@@ -13,9 +13,6 @@ var clean = require('gulp-clean');
 var concat = require('gulp-concat');
 var notify = require('gulp-notify');
 var cache = require('gulp-cache');
-var livereload = require('gulp-livereload');
-var lr = require('tiny-lr');
-var server = lr();
 
 // Styles
 gulp.task('styles', function() {
@@ -25,21 +22,23 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('./bower_components/html5-boilerplate/css'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifycss())
-    .pipe(livereload(server))
     .pipe(gulp.dest('./bower_components/html5-boilerplate/css'))
     .pipe(notify({ message: 'Styles task complete' }));
+});
+
+gulp.task('sass', function() {
+    gulp.src('./scss/*.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('./css'));
 });
 
 // Scripts
 gulp.task('scripts', function() {
   return gulp.src('./js/**/*.js')
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
     .pipe(concat('main.js'))
     .pipe(gulp.dest('./bower_components/html5-boilerplate/js'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
-    .pipe(livereload(server))
     .pipe(gulp.dest('./bower_components/html5-boilerplate/js'))
     .pipe(notify({ message: 'Scripts task complete' }));
 });
@@ -48,7 +47,6 @@ gulp.task('scripts', function() {
 gulp.task('images', function() {
   return gulp.src('./images/**/*')
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(livereload(server))
     .pipe(gulp.dest('./bower_components/html5-boilerplate/img'))
     .pipe(notify({ message: 'Images task complete' }));
 });
@@ -67,30 +65,26 @@ gulp.task('default', ['clean'], function() {
 // Watch
 gulp.task('watch', function() {
 
-  // Listen on port 35729
-  server.listen(35729, function (err) {
-    if (err) {
-      return console.log(err)
-    };
+  // Watch .scss files
+  gulp.watch('./scss/**/*.scss', function(event) {
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    gulp.run('styles');
+  });
 
-    // Watch .scss files
-    gulp.watch('./scss/**/*.scss', function(event) {
-      console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-      gulp.run('styles');
-    });
+  // Watch .js files
+  gulp.watch('./js/**/*.js', function(event) {
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    gulp.run('scripts');
+  });
 
-    // Watch .js files
-    gulp.watch('./js/**/*.js', function(event) {
-      console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-      gulp.run('scripts');
-    });
+  // Watch image files
+  gulp.watch('./images/**/*', function(event) {
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    gulp.run('images');
+  });
 
-    // Watch image files
-    gulp.watch('./images/**/*', function(event) {
-      console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-      gulp.run('images');
-    });
-
+  gulp.watch('./bower_components/html5-boilerplate/**/*', function(event) {
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
   });
 
 });
