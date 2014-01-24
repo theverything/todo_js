@@ -1,0 +1,20 @@
+{
+  "name": "quick_template",
+  "version": "0.0.0",
+  "authors": [
+    "theverything <j3ffhorn@gmail.com>"
+  ],
+  "description": "A quick template for ideas",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "html5-boilerplate": "~4.3.0"
+  }
+}

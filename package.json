@@ -1,0 +1,28 @@
+{
+  "name": "quick_template",
+  "version": "0.0.1",
+  "description": "A quick template for ideas",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "theverything <j3ffhorn@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp-util": "~2.2.12",
+    "gulp": "~3.4.0",
+    "gulp-concat": "~2.1.7",
+    "gulp-rename": "~0.2.2",
+    "gulp-uglify": "~0.1.0",
+    "gulp-jshint": "~1.3.4",
+    "gulp-sass": "~0.5.2",
+    "gulp-livereload": "~0.2.0",
+    "gulp-clean": "~0.2.4",
+    "tiny-lr": "0.0.5",
+    "gulp-minify-css": "~0.2.0",
+    "gulp-notify": "~0.3.4-2",
+    "gulp-autoprefixer": "0.0.4",
+    "gulp-imagemin": "~0.1.4",
+    "gulp-cache": "~0.1.1"
+  }
+}
