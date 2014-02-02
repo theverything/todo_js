@@ -14,7 +14,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/vendor/modernizr-2.7.1.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -22,21 +22,31 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <div class="main">
+          <h1>
+            <span class="underline">To-Do List<hr /></span>
+          </h1>
+          <div id="new_task_editor">
+            <form>
+              <input type="text" id="new_task" placeholder="Type here to add a new task." autofocus />
+              <input type="submit" />
+            </form>
+          </div>
+          <div class="list">
+          </div>
+          <div id="count">
+            <div class="done" style="width: 75%;" ><span id="done_count">3</span> done!</div>
+            <div class="undone" style="width: 25%;"><span id="undone_count">1</span> to go!</div>
+          </div>
+          <div id="remove_finished">
+            Remove finished tasks?
+            <button id="remove_finshed_tasks" class="btn btn_save">Yes!</button>
+          </div>
+        </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="js/plugins-jh.js"></script>
+        <script src="js/main-jh.js"></script>
     </body>
 </html>
