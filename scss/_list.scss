@@ -1,0 +1,86 @@
+// button colors
+$button-gray: #dededc;
+$button-gray-hover: #b3b3b1;
+$text-gray: #8e8e8c;
+$text-gray-hover: #666665;
+
+$button-green: #a9d8b2;
+$button-green-hover: #57ad68;
+$text-green: #57ad68;
+$text-green-hover: #468c54;
+
+// task colors
+$border-gray: #f2f2f0;
+
+@mixin bar {
+  float: left;
+  height: 1.5em;
+  display: inline-block;
+  color: #fff;
+  padding: 0 0 0 0.2em;
+  line-height: 1.5em;
+}
+
+
+input[type=text] {
+  width: 50%;
+  font-size: 1em;
+  display: inline-block;
+  outline: none;
+  margin: 5px 1px 3px 0px;
+  border: 0;
+}
+
+.underline {
+  display: inline-block;
+  hr {
+    margin: 0 auto;
+    width: 70%;
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-color: $border-gray;
+  }
+}
+
+.main {
+  position: relative;
+  width: 32em;
+  margin: 0 auto;
+  h1 {
+    text-align: center;
+  }
+}
+
+.list {
+  position: relative;
+  margin: 0 auto;
+}
+
+#new_task_editor {
+  padding: 1em 0;
+  border-bottom: solid 1px $border-gray;
+  input[type=submit] {
+    display: none;
+  }
+}
+
+#count {
+  margin:  1em 0 0 0;
+  @include clearfix;
+  .done {
+    @include bar;
+    background-color: green;
+  }
+  .undone {
+    @include bar;
+    background-color: red;
+  }
+}
+
+#remove_finished {
+  margin: 1em 0 0 0;
+  button {
+    margin: 0 0 0 .5em;
+  }
+}

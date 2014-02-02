@@ -1,0 +1,50 @@
+
+
+.task {
+  padding: 1em 0;
+  border-bottom: solid 1px $border-gray;
+  @include clearfix;
+  .task_controls {
+    float: right;
+    display: inline-block;
+    .task_edit_controls {
+    }
+  }
+  input[type=checkbox] {
+    margin: 0 0.5em 0 0;
+  }
+  input[type=checkbox]:checked ~ input[type=text] {
+    text-decoration: line-through;
+    color: $button-gray-hover;
+  }
+}
+
+.btn {
+  display: inline-block;
+  background-color: transparent;
+  border: 1px solid $button-gray;
+  padding: 0.6em 1em;
+  border-radius: 2em;
+  color: $text-gray;
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    border-color: $button-gray-hover;
+    color: $text-gray-hover;
+  }
+}
+
+.btn_save {
+  border-color: $button-green;
+  color: $button-green-hover;
+  margin: 0 0.5em 0 0;
+  &:hover {
+    border-color: $text-green;
+    color: $text-green-hover;
+  }
+}
+
+.hide {
+  display: none;
+}
