@@ -15,7 +15,9 @@ results
 build
 .grunt
 
+codekit-config.json
+
 node_modules
-bower_components/html5-boilerplate/css
-bower_components/html5-boilerplate/js
+bower_components/html5-boilerplate/css/
+bower_components/html5-boilerplate/js/
 bower_components/html5-boilerplate/img
