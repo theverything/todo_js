@@ -16,20 +16,9 @@ var Task = (function () {
             finished: false
           },
         render = function () {
-          var template = [
-            '<div class="task" id="' + task.id + '">',
-              '<input type="checkbox" />',
-              '<input type="text" value="' + task.body + '" disabled/>',
-              '<div class="task_controls">',
-                '<button class="btn btn_edit">Edit</button>',
-                '<span class="task_edit_controls hide">',
-                  '<button class="btn btn_save">Save</button>',
-                  '<button class="btn btn_cancel">Cancel</button>',
-                '</span>',
-              '</div>',
-            '</div>'
-          ].join("");
-          return template;
+          var source = $('#task-template').html(),
+              template = Handlebars.compile(source);
+          return template(task);
         },
         $task = $($.parseHTML(render())),
         $checkbox = $task.find("input[type=checkbox]"),

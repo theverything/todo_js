@@ -44,8 +44,23 @@
           </div>
         </div>
 
+        <script id="task-template" type="text/x-handlebars-template">
+          <div class="task" id="{{id}}">
+            <input type="checkbox" />
+            <input type="text" value="{{body}}" disabled/>
+            <div class="task_controls">
+              <button class="btn btn_edit">Edit</button>
+              <span class="task_edit_controls hide">
+                <button class="btn btn_save">Save</button>
+                <button class="btn btn_cancel">Cancel</button>
+              </span>
+            </div>
+          </div>
+        </script>
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write(<script src="js/vendor/jquery-1.11.0.min.js"><\/script>)</script>
+        <script src="js/vendor/handlebars-v1.3.0.js"></script>
         <script src="js/plugins-jh.js"></script>
         <script src="js/main-jh.js"></script>
     </body>
